@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LoginSideImg from '@/assets/images/login-img.png';
+import LoginSideImg from '@/assets/images/login-img.jpg';
 
 function LoginSideImage(){
     return(
