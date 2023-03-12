@@ -4,15 +4,15 @@ import LoginSideImage from "@/components/login-side-image";
 import LogoHeader from "@/components/logo-header";
 
 interface LoginLayoutProps {
-    children: ReactElement
+  children: ReactElement;
 }
 
-function LoginLayout({children} : LoginLayoutProps) {
+function LoginLayout({ children }: LoginLayoutProps) {
   return (
     <div className="w-full flex flex-row h-screen">
       <div className="w-2/4 px-4">
         <LogoHeader />
-        {children}
+        <div className="mt-7">{children}</div>
       </div>
       <div className="w-2/4">
         <LoginSideImage />
