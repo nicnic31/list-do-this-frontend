@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 
 import Input from "@/components/ui/input";
+import Button from "@/components/ui/button";
 import LoginLayout from "@/layout/login-layout";
 import EyeSlashIcon from "@/components/icons/eye-slash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,9 +36,9 @@ const Login: NextPage = () => {
             </div>
           </div>
 
-          <button className="w-full bg-brand text-white rounded p-3 hover:bg-dark-brand">
+          <Button variant="contained" onClick={() => alert("GOT CLICKED")}>
             Login
-          </button>
+          </Button>
         </form>
 
         <div className="w-full mt-8 text-xs">
