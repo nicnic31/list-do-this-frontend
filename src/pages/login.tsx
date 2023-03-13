@@ -1,14 +1,15 @@
 import { NextPage } from "next";
+import {useState} from "react";
 
 import Input from "@/components/ui/input";
 import Button from "@/components/ui/button";
 import LoginLayout from "@/layout/login-layout";
-import EyeSlashIcon from "@/components/icons/eye-slash";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import ViewPassword from "@/components/view-password/view-password";
 import Link from "next/link";
 
 const Login: NextPage = () => {
+  const [viewPassword, setViewPassword] = useState(false);
+
   return (
     <LoginLayout>
       <div className="py-4 w-full text-center px-[15%]">
@@ -22,12 +23,11 @@ const Login: NextPage = () => {
               <Input label="Username" type="text" />
             </div>
             <div className="my-5">
-              <div className="relative">
-                <Input label="Password" type="password" />
-                <div className="absolute right-4 top-10">
-                  <FontAwesomeIcon icon={faEyeSlash} className="h-4" />
-                </div>
-              </div>
+              <ViewPassword
+                isViewPassword={viewPassword}
+                inputLabel="Password"
+                handleViewPassword={() => setViewPassword(!viewPassword)}
+              />
               <div className="text-right w-full">
                 <Link href="/" className="text-xs">
                   Forgot password?
@@ -36,7 +36,7 @@ const Login: NextPage = () => {
             </div>
           </div>
 
-          <Button variant="contained" onClick={() => alert("GOT CLICKED")}>
+          <Button variant="contained" onClick={() => alert("GOT CLICKED")} type="submit">
             Login
           </Button>
         </form>
