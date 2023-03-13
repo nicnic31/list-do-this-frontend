@@ -9,6 +9,7 @@ export interface ButtonProps
   shape?: ShapeNames;
   isLoading?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: "button" | "submit" | "reset";
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -21,6 +22,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = "contained",
       shape = "rounded",
       color = "primary",
+      type="button",
       onClick,
       ...buttonProps
     },
@@ -59,14 +61,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={buttonRef}
-        {...buttonProps}
+        type={type}
         className={`w-full p-2.5 ${buttonStyle} ${buttonShape} ${
           disabled
             ? "cursor-not-allowed text-white"
             : "transition ease-in-out delay-150 hover:drop-shadow-2xl hover:-translate-y-1 "
-        }`}
+        } ${className}`}
         onClick={onClick}
         disabled={disabled}
+        {...buttonProps}
       >
         {children}
       </button>
